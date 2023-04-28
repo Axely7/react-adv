@@ -4,7 +4,7 @@ import {
   ProductCard,
   ProductImage,
   ProductTitle,
-} from "../components/ProductCard";
+} from "../components";
 
 const product = {
   id: "1",
@@ -18,19 +18,15 @@ export const ShoppingPage = () => {
       <h1>Shopping Store</h1>
       <hr />
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        <ProductCard product={product}>
+        {/* <ProductCard product={product}>
           <ProductCard.Image />
           <ProductCard.Title title="Café" />
-        </ProductCard>
+          <ProductButtons />
+        </ProductCard> */}
         <ProductCard product={product}>
           <ProductImage />
-          <ProductTitle title="Café" />
-          <ProductButtons
-            increaseBy={function (value: number): void {
-              throw new Error("Function not implemented.");
-            }}
-            counter={0}
-          />
+          <ProductTitle />
+          <ProductButtons />
         </ProductCard>
       </div>
     </div>
