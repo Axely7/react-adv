@@ -6,7 +6,7 @@ import {
   ProductTitle,
 } from "../components";
 import "../styles/custom-styles.css"; // La importación de estilos debe ir después de la importación de los componentes
-import { Product } from "../interfaces/interfaces";
+import { onChangeArgs, Product } from "../interfaces/interfaces";
 
 const product1 = {
   id: "1",
@@ -31,8 +31,19 @@ export const ShoppingPage = () => {
     [key: string]: ProductInCart;
   }>({});
 
-  const onProductCountChange = () => {
-    console.log("onProductCountChange");
+  const onProductCountChange = ({ count, product }: onChangeArgs) => {
+    // console.log("onProductCountChange", count, product);
+    setShoppingCart((oldShoppingCart) => {
+      if (count === 0) {
+        // delete oldShoppingCart[product.id];
+        const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+        return rest;
+      }
+      return {
+        ...oldShoppingCart,
+        [product.id]: { ...product, count },
+      };
+    });
   };
 
   return (
@@ -45,7 +56,7 @@ export const ShoppingPage = () => {
             product={product}
             className="bg-dark text-white"
             key={product.id}
-            onChange={() => onProductCountChange()}
+            onChange={onProductCountChange}
           >
             <ProductImage
               className="custom-image"
@@ -62,7 +73,7 @@ export const ShoppingPage = () => {
           product={product2}
           className="bg-dark text-white"
           style={{ width: "100px" }}
-          onChange={() => onProductCountChange()}
+          // onChange={() => onProductCountChange(product1)}
         >
           <ProductImage
             className="custom-image"
@@ -81,6 +92,10 @@ export const ShoppingPage = () => {
           />
           <ProductButtons className="custom-buttons" />
         </ProductCard>
+      </div>
+
+      <div>
+        <code>{JSON.stringify(shoppingCart, null, 5)}</code>
       </div>
     </div>
   );
