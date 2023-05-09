@@ -56,6 +56,7 @@ export const ShoppingPage = () => {
             product={product}
             className="bg-dark text-white"
             key={product.id}
+            value={shoppingCart[product.id]?.count || 0}
             onChange={onProductCountChange}
           >
             <ProductImage
@@ -69,33 +70,25 @@ export const ShoppingPage = () => {
       </div>
 
       <div className="shopping-cart">
-        <ProductCard
-          product={product2}
-          className="bg-dark text-white"
-          style={{ width: "100px" }}
-          // onChange={() => onProductCountChange(product1)}
-        >
-          <ProductImage
-            className="custom-image"
-            style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}
-          />
-          <ProductButtons className="custom-buttons" />
-        </ProductCard>
-        <ProductCard
-          product={product1}
-          className="bg-dark text-white"
-          style={{ width: "100px" }}
-        >
-          <ProductImage
-            className="custom-image"
-            style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}
-          />
-          <ProductButtons className="custom-buttons" />
-        </ProductCard>
-      </div>
-
-      <div>
-        <code>{JSON.stringify(shoppingCart, null, 5)}</code>
+        {Object.keys(shoppingCart).map((item) => (
+          <ProductCard
+            key={item}
+            product={shoppingCart[item]}
+            className="bg-dark text-white"
+            style={{ width: "100px" }}
+            value={shoppingCart[item].count}
+            onChange={onProductCountChange}
+          >
+            <ProductImage
+              className="custom-image"
+              style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}
+            />
+            <ProductButtons
+              className="custom-buttons"
+              style={{ display: "flex", justifyContent: "center" }}
+            />
+          </ProductCard>
+        ))}
       </div>
     </div>
   );
