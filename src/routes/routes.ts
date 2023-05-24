@@ -1,5 +1,6 @@
 import { lazy, LazyExoticComponent } from "react";
 import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
+import { RegisterPage } from "../03-forms/pages/RegisterPage";
 
 type JSXComponent = () => JSX.Element
 
@@ -32,9 +33,9 @@ export const routes: Route[] = [
         name: 'Lazy 2'
     },
     {
-        to: '/lazy3',
-        path: 'lazy3',
-        Component: Lazy3,
-        name: 'Lazy 3'
+        to: '/registerPage',
+        path: 'registerPage',
+        Component: RegisterPage,
+        name: 'Register Page'
     }
 ]
