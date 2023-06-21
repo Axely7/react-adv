@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/styles.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { MyTextInput } from "../components/MyTextInput";
 
 interface FormValues {
   firstName: string;
@@ -9,10 +10,10 @@ interface FormValues {
   email: string;
 }
 
-export const FormikYupPageComponents = () => {
+export const FormikAbstract = () => {
   return (
     <div>
-      <h1>Formik Components </h1>
+      <h1>Formik Abstract </h1>
       <Formik
         initialValues={{
           firstName: "",
@@ -43,17 +44,24 @@ export const FormikYupPageComponents = () => {
       >
         {(formik) => (
           <Form>
-            <label htmlFor="firstName">First Name</label>
-            <Field name="firstName" type="text" />
-            <ErrorMessage name="firstName" component={"span"} />
+            <MyTextInput
+              label="First Name"
+              name="firstName"
+              placeholder="Axel"
+            />
 
-            <label htmlFor="lastName">Last Name</label>
-            <Field name="lastName" type="text" />
-            <ErrorMessage name="lastName" component={"span"} />
+            <MyTextInput
+              label="Last Name"
+              name="lastName"
+              placeholder="Jimenez"
+            />
 
-            <label htmlFor="email">Email Adress</label>
-            <Field name="email" type="text" />
-            <ErrorMessage name="email" component={"span"} />
+            <MyTextInput
+              label="Email Address"
+              name="email"
+              placeholder="john@google.com"
+              type="email"
+            />
 
             <label htmlFor="jobType">Job Type</label>
             <Field name="jobType" as="select">

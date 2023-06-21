@@ -3,6 +3,7 @@ import { RegisterPage } from "../03-forms/pages/RegisterPage";
 import { FormikBasicPage } from '../03-forms/pages/FormikBasicPage';
 import { FormikYupPage } from "../03-forms/pages/FormikYupPage";
 import { FormikYupPageComponents } from "../03-forms/pages/FormikYupPageComponents";
+import { FormikAbstract } from "../03-forms/pages/FormikAbstract";
 
 type JSXComponent = () => JSX.Element
 
@@ -57,5 +58,11 @@ export const routes: Route[] = [
         path: 'formikComponents',
         Component: FormikYupPageComponents,
         name: 'Formik Component'
+    },
+    {
+        to: '/FormikAbstract',
+        path: 'FormikAbstract',
+        Component: FormikAbstract,
+        name: 'Formik Abstract'
     }
 ]
