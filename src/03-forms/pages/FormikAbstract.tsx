@@ -1,8 +1,11 @@
 import React from "react";
 import "../styles/styles.css";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { MyTextInput } from "../components/MyTextInput";
+// import { MyTextInput } from "../components/MyTextInput";
+// import { MySelect } from "../components/MySelect";
+// import { MyCheckbox } from "../components/MyCheckbox";
+import { MyCheckbox, MySelect, MyTextInput } from "../components";
 
 interface FormValues {
   firstName: string;
@@ -63,21 +66,15 @@ export const FormikAbstract = () => {
               type="email"
             />
 
-            <label htmlFor="jobType">Job Type</label>
-            <Field name="jobType" as="select">
+            <MySelect label="JobType" name="jobType">
               <option value={""}>Pick something</option>
               <option value={"developer"}>Developer</option>
               <option value={"designer"}>Designer</option>
               <option value={"it-senior"}>IT Senior</option>
               <option value={"it-jr"}>IT Jr.</option>
-            </Field>
-            <ErrorMessage name="jobType" component={"span"} />
+            </MySelect>
 
-            <label>
-              <Field name="terms" type="checkbox" />
-              Terms and Conditions
-            </label>
-            <ErrorMessage name="terms" component={"span"} />
+            <MyCheckbox label="Terms & Conditions" name="terms" />
 
             <button type="submit">Submit</button>
           </Form>
