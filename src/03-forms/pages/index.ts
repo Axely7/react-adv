@@ -1,3 +1,5 @@
+export { RegisterFormikPage } from './RegisterFormikPage';
+
 export { FormikAbstract } from './FormikAbstract';
 export { FormikBasicPage } from './FormikBasicPage';
 export { FormikYupPage } from './FormikYupPage';
