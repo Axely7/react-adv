@@ -1,0 +1,30 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Axel",
+        "label": "First Name",
+        "value": ""
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Jimenez",
+        "label": "Last Name",
+        "value": ""
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "correo@correo.com",
+        "label": "Email",
+        "value": ""
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [{"id": 1, "label": "Super Smash"}, {"id": 2, "label": "Metal Gear"}, {"id": 3, "label": "Resident Evil"}]
+    }
+]
